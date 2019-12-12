@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,19 +60,24 @@
 
         <h1 class="my-4">Genre</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+        
+      <a href="#" class="list-group-item"></a>
+     
+          
+         
         </div>
 
       </div>
       <!-- /.col-lg-3 -->
+{% block add %}
 
+{% endblock %}
       <div class="col-lg-9">
 
-        
+       
 
         <div class="row my-4">
+        
  {% for book in books %}
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
@@ -84,14 +90,19 @@
                 <h6>{{book.published}}</h6>
                 <h6>{{book.genre}}</h6>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              
+        
               </div>
+              
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
           </div>
+          {% endfor %}
 
-      {% endfor %}
+      
+       
 
         </div>
         <!-- /.row -->

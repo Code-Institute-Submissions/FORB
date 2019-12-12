@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block add %}
+
+<div class="col my-5">
+  
+  
+
+<form action="{{ url_for('insert_book') }}" method="POST">
+
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Book Title</label>
+    <input type="text"  class="form-control"  placeholder="Title" name="title" id="exampleFormControlInput1">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Author</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="author" placeholder="Authors name">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Published year</label>
+    <input type="number" class="form-control" id="exampleFormControlInput1" name="published" placeholder="Published year">
+  </div>
+   <div class="form-group">
+    <label for="exampleFormControlSelect2">Genre</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="genre">
+    {% for gen in genre %}
+      <option>{{gen.genre}}</option>
+     {% endfor %}
+    </select>
+  </div>
+ 
+ 
+  <form>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Image</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+  <button type="submit" class="btn btn-primary">Add the book</button>
+</form>
+
+
+
+
+</div>
+{% endblock %}

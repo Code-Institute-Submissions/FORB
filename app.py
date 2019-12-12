@@ -16,11 +16,20 @@ def get_books():
     return render_template("base.html", books=mongo.db.books.find())
 
 
-
+@app.route("/add_book")
+def add_task():
+    return render_template("add_book.html", genre=mongo.db.genre.find())    
+    
+@app.route("/insert_book", methods=["POST"])
+def insert_book():
+    books = mongo.db.books
+    
+    books.insert_one(request.form.to_dict())
+    return redirect(url_for('get_books'))
 
 
 
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP", "0.0.0.0"), port=int(os.environ.get("PORT", "5000")),debug=False)
+    app.run(host=os.environ.get("IP", "0.0.0.0"), port=int(os.environ.get("PORT", "3000")),debug=True)
