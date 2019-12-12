@@ -23,8 +23,14 @@ def add_task():
 @app.route("/insert_book", methods=["POST"])
 def insert_book():
     books = mongo.db.books
+
+    books.insert_one({
+        'title':request.form.get('title'),
+        'author':request.form.get('author'),
+        'published': request.form.get('published'),
+        'genre': request.form.get('genre')
+    })
     
-    books.insert_one(request.form.to_dict())
     return redirect(url_for('get_books'))
 
 
