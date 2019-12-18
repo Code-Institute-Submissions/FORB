@@ -23,9 +23,14 @@
    <div class="form-group">
     <label for="exampleFormControlSelect2">Genre</label>
     <select multiple class="form-control" id="exampleFormControlSelect2" name="genre">
+    
     {% for gen in genre %}
       <option>{{gen.genre}}</option>
      {% endfor %}
+
+
+
+     
     </select>
   </div>
  
