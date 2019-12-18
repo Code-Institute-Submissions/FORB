@@ -53,7 +53,7 @@
 
   <!-- Page Content -->
   <div class="container">
-{% block add %}
+
 
 
     <div class="row">
@@ -70,12 +70,12 @@
         </div>
 
       </div>
-      <!-- /.col-lg-3 -->
+      <!-- /.col-lg-3 --> 
 
       <div class="col-lg-9">
 
-       
-
+    
+{% block add %}  
         <div class="row my-4">
         
  {% for book in books %}
@@ -93,7 +93,7 @@
               
         
               </div>
-              
+               
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
@@ -101,12 +101,12 @@
           </div>
           {% endfor %}
 
-      {% endblock %}
-       
+      
+      
 
         </div>
         <!-- /.row -->
-
+{% endblock %}
       </div>
       <!-- /.col-lg-9 -->
 
