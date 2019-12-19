@@ -13,7 +13,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_books")
 def get_books():
-    return render_template("base.html", books=mongo.db.books.find(), genre=list(mongo.db.genre.find()))
+    return render_template("base.html", books=list(mongo.db.books.find()), genre=list(mongo.db.genre.find()))
 
 
 @app.route("/add_book")
@@ -24,16 +24,20 @@ def add_book():
 @app.route("/insert_book", methods=["POST"])
 def insert_book():
     books = mongo.db.books
-    books.insert_one({
-        'title':request.form.get('title'),
-        'author':request.form.get('author'),
-        'published': request.form.get('published'),
-        'genre': request.form.get('genre')
-    })
+    books.insert_one(request.form.to_dict(flat=False))
     
     return redirect(url_for('get_books'))
 
-   
+
+@app.route("/insert_review", methods=["POST"])
+def insert_review():
+    books = mongo.db.books
+    books.insert_one(request.form.to_dict(flat=False))
+    
+    return redirect(url_for('get_books'))
+
+
+
 
 
 
