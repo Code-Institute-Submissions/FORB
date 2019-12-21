@@ -29,14 +29,16 @@ def insert_book():
     return redirect(url_for('get_books'))
 
 
-@app.route("/insert_review", methods=["POST"])
-def insert_review():
-    books = mongo.db.books
-    books.insert_one(request.form.to_dict(flat=False))
-    
+@app.route('/add_review/<book_id>')
+def add_review(book_id):
+    currentReview =  mongo.db.books.find_one({"_id": ObjectId(book_id)})
+    return render_template('add_review.html', book=currentReview, genre=list(mongo.db.genre.find()))
+
+@app.route('/insert_review/<book_id>', methods=["POST"])
+def insert_review(book_id):
+    book = mongo.db.books
+    book.insert_one( {"reviews":"revrev"},{'_id'== ObjectId(book_id)})
     return redirect(url_for('get_books'))
-
-
 
 
 
