@@ -38,10 +38,11 @@ def add_review(book_id):
 def insert_review(book_id):
     book = mongo.db.books
     
-    book.update_one({'_id': ObjectId(book_id)}, {'$set':{
-            'reviews':request.form.getlist("reviews")
+    book.update_one({'_id': ObjectId(book_id)}, {'$push':{
+            'reviews':request.form.get("reviews")
             }
         })
+        
     return redirect(url_for('get_books'))
 
 
