@@ -37,7 +37,11 @@ def add_review(book_id):
 @app.route('/insert_review/<book_id>', methods=["POST"])
 def insert_review(book_id):
     book = mongo.db.books
-    book.insert_one( {"reviews":"revrev"},{'_id'== ObjectId(book_id)})
+    
+    book.update_one({'_id': ObjectId(book_id)}, {'$set':{
+            'reviews':request.form.getlist("reviews")
+            }
+        })
     return redirect(url_for('get_books'))
 
 
