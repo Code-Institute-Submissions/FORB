@@ -25,6 +25,9 @@ def add_book():
 def insert_book():
     books = mongo.db.books
     books.insert_one(request.form.to_dict(flat=False))
+    if 'book_image' in request.files:
+        book_image = request.files['book_image']
+        books.save_file(book_image.filename, book_image)
     
     return redirect(url_for('get_books'))
 
