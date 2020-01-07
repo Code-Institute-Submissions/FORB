@@ -48,7 +48,7 @@ def insert_review(book_id):
             }
         })
         
-    return redirect(url_for('get_books'))
+    return add_review(book_id)
 
 
 
