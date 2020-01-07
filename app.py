@@ -24,10 +24,12 @@ def add_book():
 @app.route("/insert_book", methods=["POST"])
 def insert_book():
     books = mongo.db.books
-    books.insert_one(request.form.to_dict(flat=False))
-    if 'book_image' in request.files:
-        book_image = request.files['book_image']
-        books.save_file(book_image.filename, book_image)
+    books.insert_one({
+        'title': request.form.get('title'),
+        'author': request.form.get('author'),
+        'published': request.form.get('published'),
+        'genre':request.form.getlist('genre'),
+        'image_link': request.form.get('cover')})
     
     return redirect(url_for('get_books'))
 

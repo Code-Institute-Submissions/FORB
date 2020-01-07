@@ -17,6 +17,8 @@
 
   <!-- Custom styles for this template -->
   <link href="{{url_for('static', filename='css/shop-homepage.css')}}" rel="stylesheet">
+
+  <link href="{{url_for('static', filename='css/my.css')}}" rel="stylesheet">
   
 
 </head>
@@ -61,7 +63,7 @@
       <div class="col-lg-3">
 
         <h1 class="my-4">Genre</h1>
-        <div class="list-group">
+        <div class="list-group mb-3">
         {% for gen in genre %}
       <a href="#" class="list-group-item">{{gen.genre}}</a>
      {%endfor%}
@@ -81,13 +83,13 @@
  {% for book in books %}
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
+              <a href="#"><img class="card-img-top bookCover" src="{{book.image_link}}" alt="Book Cover"></a>
+             <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">{{" ".join(book.title)}}</a>
+                  <a href="#">{{book.title}}</a>
                 </h4>
-                <h5>{{" ".join(book.author)}}</h5>
-                <h6>{{" ".join(book.published)}}</h6>
+                <h5>{{book.author}}</h5>
+                <h6>{{book.published}}</h6>
                 <h6>{{", ".join(book.genre)}}</h6>
                 
                 
