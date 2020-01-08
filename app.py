@@ -51,7 +51,10 @@ def insert_review(book_id):
     return add_review(book_id)
 
 
-
+@app.route("/contact")
+def contact():
+    
+    return render_template("contact.html", genre=list(mongo.db.genre.find()), books=mongo.db.books.find())
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP", "0.0.0.0"), port=int(os.environ.get("PORT", "3000")),debug=True)
