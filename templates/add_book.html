@@ -21,8 +21,8 @@
     <input type="text" class="form-control" id="exampleFormControlInput1" name="published" placeholder="Published year" required>
   </div>
    <div class="form-group">
-    <label for="exampleFormControlSelect2" data-toggle="tooltip" title="hold down ctrl(pc)/cmd(apple) to select multiple">Genre</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2" name="genre" data-toggle="tooltip" title="hold down ctrl/cmd(apple) to select multiple" data-placement="down">
+    <label for="exampleFormControlSelect2" data-toggle="tooltip" title="hold ctrl(pc)/cmd(apple) to select multiple">Genre</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="genre" >
     
     {% for gen in genre %}
       <option>{{gen.genre}}</option>
