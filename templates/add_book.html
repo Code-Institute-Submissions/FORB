@@ -10,19 +10,19 @@
 
   <div class="form-group">
     <label for="exampleFormControlInput1">Book Title</label>
-    <input type="text"  class="form-control"  placeholder="Title" name="title" id="exampleFormControlInput1">
+    <input type="text"  class="form-control"  placeholder="Title" name="title" id="exampleFormControlInput1" required>
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Author</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="author" placeholder="Authors name">
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="author" placeholder="Authors name" required>
   </div>
   <div class="form-group">
     <label for="exampleFormControlInput1">Published year</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" name="published" placeholder="Published year">
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="published" placeholder="Published year" required>
   </div>
    <div class="form-group">
-    <label for="exampleFormControlSelect2">Genre</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2" name="genre">
+    <label for="exampleFormControlSelect2" data-toggle="tooltip" title="hold down ctrl(pc)/cmd(apple) to select multiple">Genre</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="genre" data-toggle="tooltip" title="hold down ctrl/cmd(apple) to select multiple" data-placement="right">
     
     {% for gen in genre %}
       <option>{{gen.genre}}</option>
