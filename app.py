@@ -6,7 +6,7 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = "ror-book"
-app.config["MONGO_URI"] = "mongodb+srv://task_manager_by_rawa:Script9090@myfirstcluster-2baum.mongodb.net/ror-book?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
@@ -65,4 +65,4 @@ def delete_book(book_id):
         
     
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP", "0.0.0.0"), port=int(os.environ.get("PORT", "3000")),debug=True)
+    app.run(host=os.environ.get("IP", "0.0.0.0"), port=int(os.environ.get("PORT", "3000")),debug=False)
