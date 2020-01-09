@@ -88,13 +88,13 @@
 
 									<!-- reviews -->
 									  <h3 class="mt-3">Reviews:</h3>
-                                      
+                                      <ul> 
         {% for rev in book.reviews%}
         
                                      
         
-                <li>{{rev[:35]}}</li>
-                {% endfor %}
+               <li>{{rev[:35]}}</li>
+                {% endfor %}</ul>
 									<!-- /reviews -->
 								</div>
 								<a href="{{ url_for('add_review', book_id=book._id) }}"
@@ -120,7 +120,7 @@
 	</div>
 	<!-- /.row -->
 
-	</div>
+	
 	<!-- /.container -->
 
 	<!-- Footer -->
