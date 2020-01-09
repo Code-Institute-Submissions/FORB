@@ -25,8 +25,8 @@ def add_book():
 def insert_book():
     books = mongo.db.books
     books.insert_one({
-        'title': request.form.get('title'),
-        'author': request.form.get('author'),
+        'title': request.form.get('title').upper(),
+        'author': request.form.get('author').upper(),
         'published': request.form.get('published'),
         'genre':request.form.getlist('genre'),
         'image_link': request.form.get('cover')})

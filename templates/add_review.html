@@ -19,16 +19,18 @@
                 <h5>{{book.author}}</h5>
                 <h6>{{book.published}}</h6>
                 <h6>{{", ".join(book.genre)}}</h6>
-                </div>
-               <a href="{{ url_for('add_review', book_id=book._id) }}" class="btn-sm btn btn-primary m-2" id="finalBuy">Buy Book</a>
-            </div>
+                
+               <a href="{{ url_for('add_review', book_id=book._id) }}" class="btn-sm btn btn-primary mt-2" id="finalBuy">Buy Book</a>
+               <button type="button" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#exampleModal">Remove this book
+                                    </button>
+            </div></div>
             
           </div>
           <div class="col-12 col-md-6 mb-4">
           <h2 class="mt-3">Reviews:</h2>
        {% for rev in book.reviews %}
         
-                <li>{{rev}}</li>
+                <li class="mt-2">{{rev}}</li>
                 {% endfor %}
         <form action="{{ url_for('insert_review', book_id=book._id) }}" method="POST">
                 
@@ -44,4 +46,27 @@
 
 </div>
 </div>
+<!-- Modal -->
+   
+								<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Delete this book</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+											</div>
+
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+												<a href="{{ url_for('delete_book', book_id=book._id) }}"
+													class="btn-sm btn btn-primary">Remove this book</a>
+
+											</div>
+										</div>
+									</div>
+								</div>
+                                <!-- /Modal -->
 {% endblock %}
