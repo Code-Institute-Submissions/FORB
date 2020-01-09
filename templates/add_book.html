@@ -3,7 +3,7 @@
 
 <div class="col my-5">
   
-  
+<!-- Book Form -->  
 
 <form action="{{ url_for('insert_book') }}" method="POST">
 
@@ -20,6 +20,7 @@
     <label for="exampleFormControlInput1">Published year</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" name="published" placeholder="Published year" required>
   </div>
+   <!-- Genre Box -->  
    <div class="form-group">
     <label for="exampleFormControlSelect2" data-toggle="tooltip" title="hold ctrl(pc)/cmd(apple) to select multiple">Genre</label>
     <select multiple class="form-control" id="exampleFormControlSelect2" name="genre" >
@@ -27,21 +28,19 @@
     {% for gen in genre %}
       <option>{{gen.genre}}</option>
      {% endfor %}
-
-
-
-     
-    </select>
+ </select>
   </div>
- 
- 
-  <form>
+  <!-- /Genre Box --> 
+  <!-- Image Link Insert -->  
    <div class="form-group">
     <label for="exampleFormControlInput1">Book Image</label>
     <input type="link" class="form-control" id="exampleFormControlInput1" name="cover" placeholder="Image-Link">
-  </div>
+  </div><!-- /Image Link Insert --> 
+  <!--Submit Button --> 
   <button type="submit" class="btn btn-primary">Add the book</button>
+  <!--/Submit Button --> 
 </form>
+<!-- /Book Form -->  
 
 
 

@@ -80,10 +80,10 @@
 
 									<!-- review button -->
 									<a href="{{ url_for('add_review', book_id=book._id) }}" class="btn-sm btn btn-primary mt-4">Write a review</a>
-									<!-- /review button -->
+									
 									
 									<a href="{{ url_for('add_review', book_id=book._id) }}" class="btn-sm btn btn-primary mt-4">All Reviews</a>
-                                   
+                                   <!-- /review button -->
 									
 
 									<!-- reviews -->
@@ -126,7 +126,7 @@
 	<!-- Footer -->
 	<footer class="py-5 bg-dark mt-5">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+			<p class="m-0 text-center text-white">Copyright &copy; Rawa Aref 2019</p>
 		</div>
 		<!-- /.container -->
 	</footer>
@@ -136,6 +136,7 @@
 
 	<script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
 	<script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- /Custom Javascript -->
 	<script src="{{url_for('static', filename='myscript.js')}}"></script>
 </body>
 

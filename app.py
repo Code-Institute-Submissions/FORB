@@ -10,17 +10,19 @@ app.config["MONGO_URI"] = "mongodb+srv://task_manager_by_rawa:Script9090@myfirst
 
 mongo = PyMongo(app)
 
+# presenting the books on firstpage
 @app.route("/")
 @app.route("/get_books")
 def get_books():
     return render_template("base.html", books=list(mongo.db.books.find()), genre=list(mongo.db.genre.find()))
 
-
+# redirecting to add-book form
 @app.route("/add_book")
 def add_book():
     
     return render_template("add_book.html", genre=list(mongo.db.genre.find()), books=mongo.db.books.find())    
-    
+
+#book-form handler    
 @app.route("/insert_book", methods=["POST"])
 def insert_book():
     books = mongo.db.books
@@ -33,12 +35,13 @@ def insert_book():
     
     return redirect(url_for('get_books'))
 
-
+#redirecting to selected book page
 @app.route('/add_review/<book_id>')
 def add_review(book_id):
     currentReview =  mongo.db.books.find_one({"_id": ObjectId(book_id)})
     return render_template('add_review.html', book=currentReview, genre=list(mongo.db.genre.find()))
 
+#inserting review
 @app.route('/insert_review/<book_id>', methods=["POST"])
 def insert_review(book_id):
     book = mongo.db.books
@@ -52,7 +55,7 @@ def insert_review(book_id):
         
     return add_review(book_id)
 
-
+#deleting book selected by id
 @app.route('/delete_book/<book_id>')
 def delete_book(book_id):
     mongo.db.books.remove({'_id':ObjectId(book_id)})
